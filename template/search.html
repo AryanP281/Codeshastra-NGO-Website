@@ -14,32 +14,17 @@
     <form action="" method="POST">
     <div class="dd">
     <select name="ngo">
-    <optgroup label="Borivali-Andheri" >
-    <option value="Goonj">Goonj</option>
-    <option value="child in need institute">child in need institute</option>
-    <option value="katha">katha</option>
-    </optgroup>
-    <optgroup label="Andheri-Bandra">
-    <option value="orbis international">orbis international</option>
-    <option value="kiss foundation">kiss foundation</option>
-    </optgroup>
-    <optgroup label="Bandra-Dadar">
-    <option value="bombay national history society">bombay national history society</option>
-    <option value="bharat sevashram sangha">bharat sevashram sangha</option>
-    </optgroup>
-    <optgroup label="Dadar-Mumbai Central">
-    <option value="Dr.Reddy foundation">Dr.Reddy foundation</option>
-    <option value="bharti foundation">bharti foundation</option>
-    </optgroup>
-    <optgroup label="Mumbai Central-Churchgate">
-    <option value="robin hood army">robin hood army</option>
-    <option value="make a difference">make a difference</option>
-    </optgroup>
+      {% for i in range(0, locs.__len__()) %}
+        <optgroup label="{{ locs[i] }}">
+        {% for non_g in ngos_lst[i] %}
+          <option value="{{ non_g }}">{{ non_g }}</option>
+        {% endfor %}
+        </optgroup> 
+      {% endfor %}
     </select>
     <input type="submit">
     </div>
     <br>
-
   </form>
   </body>
 </html>
